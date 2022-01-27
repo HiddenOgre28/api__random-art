@@ -4,16 +4,11 @@
 /* Variables */
 /* Color palette and fonts */
 :root {
-    --primary-color-1: hsl(0, 36%, 70%);
+    --primary-color-1: hsl(0, 0%, 100%);
     --primary-color-2: hsl(0, 93%, 68%);
 
     --neutral-color-1: hsl(0, 6%, 24%);
-    --neutral-color-2: hsl(0, 0%, 100%);
-
-    --gradient-a1: hsl(0, 0%, 100%);  //* Linear, 135deg, from a1 to a2.
-    --gradient-a2: hsl(0, 100%, 98%);
-    --gradient-b1: hsl(0, 80%, 86%);  //* Linear, 135deg, from b1 to b2.
-    --gradient-b2: hsl(0, 74%, 74%);
+    --neutral-color-2: hsl(0, 0%, 93%);
 
     --font-weight-light: 300;
     --font-weigth-normal: 400;
@@ -50,7 +45,6 @@
 
 body {
     font-family: var(--primary-font);
-    background: white;
 }
 
 button {
@@ -61,28 +55,138 @@ button {
 
 /* Layout */
 .App {
-  display: flex;
-  flex-direction: column;
+  @include flexContainer(column, null, null);
+
+  &__container {
+    @include flexContainer(row, center, center);
+  }
 }
 
 .Header {
   min-height: 15vh;
-  width: 100vw;
+  max-width: 100vw;
   background-color: aqua;
   position: sticky;
   top: 0;
+  background-color: var(--primary-color-1);
+  border-bottom: 1px solid var(--neutral-color-2);
+  box-shadow: 0px 0px 10px 0px var(--neutral-color-2);
+  z-index: 5;
+
+  @include flexContainer(row, center, center);
+
+  &__title {
+    color: var(--primary-color-2);
+    margin-top: -3rem;
+  }
+
+  &__container {
+    @include flexContainer(column, center, center);
+    gap: 1rem;
+  }
+
+  &__description {
+    padding-inline: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  &__btn {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    font-weight: var(--font-weigth-bold);
+    background: var(--primary-color-2);
+    width: 10rem;
+    color: var(--primary-color-1);
+    text-transform: uppercase;
+  }
+
+  &__info {
+    max-width: 1.6%;
+    margin-top: -2.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .Content {
-  background-color: brown;
   max-width: 100vw;
   min-height: 85vh;
   text-align: center;
+  background-color: var(--primary-color-1);
+
+  &__title {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+  }
+
+  &__artist {
+    margin: .5rem 0 1rem 0;
+    font-size: 1.3rem;
+  }
+
+  &__img {
+    margin-bottom: 2rem;
+  }
 }
 
-/* .Sidebar {
-  grid-area: sidebar;
-  background-color: goldenrod;
+.Sidebar {
+  background: var(--primary-color-2);
   width: 30vw;
   height: 100vh;
-} */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0vw;
+  text-align: center;
+  color: var(--primary-color-1);
+  transition: right 500ms;
+
+  &__title {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  &__description {
+    text-align: justify;
+    padding-inline: 1.5rem;
+  }
+
+  &__socials {
+    margin-top: 4rem;
+    padding-bottom: 1rem;
+    display: block;
+
+    &__links {
+      margin: 0 auto;
+      padding-block: .2rem;
+      width: 7%;
+      list-style-type: none;
+    }
+
+    &__links > li {
+      padding-block: .2rem;
+    }
+  }
+
+  &__close {
+    width: 4%;
+    transform: translateY(2.2rem) translateX(6.3rem);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.loading {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+}
+
+.Sidebar--hidden {
+  @extend .Sidebar;
+  right: -100vw;
+}

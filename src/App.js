@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.scss';
 import Content from './components/Content';
 import Header from './components/Header';
+import Sidebar from './components/Sidebar'
 
 function App() {
   /* STATES */
@@ -11,15 +12,25 @@ function App() {
   const [title, setTitle] = useState([]);
   const [artist, setArtist] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
 
   /* GETS A RANDOM NUMBER FOR THE API */
   const getRandomNum = (num) => {
     return Math.floor(Math.random() * num);
   };
 
+  const showSidebar = () => {
+    setSidebar(!sidebar);
+  };
+
   const getArtwork = () => {
     setPage(getRandomNum(507));
     setIndex(getRandomNum(12));
+    moveScrollBar();
+  }
+
+  const moveScrollBar = () => {
+    window.scroll(0, 0);
   }
 
   useEffect( () => {
@@ -44,8 +55,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header getArtwork={getArtwork}/>
-      <Content image={image} title={title} artist={artist} loading={loading}/>
+      <Header getArtwork={getArtwork} moveScrollBar={moveScrollBar} showSidebar={showSidebar}/>
+      <div className='App__container'>
+        <Content image={image} title={title} artist={artist} loading={loading}/>
+        <Sidebar sidebar={sidebar} showSidebar={showSidebar}/>
+      </div>
     </div>
   );
 }
