@@ -9,20 +9,17 @@ function Sidebar( { sidebar, showSidebar } ) {
       <img src={close} alt="" className='Sidebar__close' onClick={showSidebar}></img>
       <h2 className="Sidebar__title">About</h2>
       <p className="Sidebar__description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium
-        accumsan sagittis. Nunc sit amet convallis lacus, sed pulvinar odio.
-        Nullam at tincidunt neque. Sed lobortis turpis ornare quam feugiat, ut
-        molestie risus sagittis. Proin ut tincidunt odio. In suscipit turpis
-        purus, sed tincidunt metus congue eget. Fusce maximus, justo a eleifend
-        vulputate, tortor quam rhoncus nibh, eu maximus mauris urna sed ante.
-        Vestibulum pharetra turpis sit amet purus finibus, sit amet varius ex
-        pharetra. Vestibulum sagittis tempor sem sagittis sollicitudin.
+        I made this app so I can look at random pretty pictures. 
+      </p>
+      <p className="Sidebar__description">
+        As of now, it can only fetch art from the Art Institute of 
+        Chicago's archive, but I plan on adding more museums soon enough.
       </p>
       <h3 className="Sidebar__socials">You can find me at:</h3>
       <ul className="Sidebar__socials__links">
-          <li><a href="#" target="blank_"><img src={github} alt=""></img></a></li>
-          <li><a href="#" target="blank_"><img src={linkedin} alt=""></img></a></li>
-          <li><a href="#" target="blank_"><img src={twitter} alt=""></img></a></li>
+          <li><a href="https://github.com/yasledesma" target="blank_"><img src={github} alt=""></img></a></li>
+          <li><a href="https://www.linkedin.com/in/yasmin-ledesma/" target="blank_"><img src={linkedin} alt=""></img></a></li>
+          <li><a href="https://twitter.com/yasledesma28" target="blank_"><img src={twitter} alt=""></img></a></li>
       </ul>
     </div>
   );
