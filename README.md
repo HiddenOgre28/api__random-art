@@ -13,7 +13,7 @@ When you open the app, it shows a random picture from the Art Institute of Chica
 
 ### Installing
 You can either view the live version of this app online, or you can download this repository and run `npm start` in your terminal to deploy a local version of the app.
-```
+
 
 ## Author
 - Yasmin Ledesma [@yasledesma28](https://twitter.com/yasledesma28)
