@@ -8,6 +8,8 @@ It was made using:
 * [Sass](https://sass-lang.com/)
 * And the [Art Institute of Chicago's API](https://api.artic.edu/docs/)
 
+![Screenshot](https://nimbus-screenshots.s3.amazonaws.com/s/2b6367cf00ac0bd77a1d99e9ee7dc6d1.png)
+
 ## Getting Started
 When you open the app, it shows a random picture from the Art Institute of Chicago's archive. To view another one, simply press the "GET ARTWORK" button, and it will fetch and display another random picture for you.
 
